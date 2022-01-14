@@ -1,0 +1,9 @@
+@using Bakery.Models
+<h1>test</h1>
+<ul>
+@foreach(Flavor f in Model)
+{
+  <li>@Html.ActionLink(f.Description,"Detail","Flavor", new{id=f.FlavorId})</li>
+}
+</ul>
+@Html.ActionLink("Create", "Create", "Flavor")

@@ -3,14 +3,16 @@ using System;
 using Bakery.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Bakery.Migrations
 {
     [DbContext(typeof(skylar_brockbankContext))]
-    partial class skylar_brockbankContextModelSnapshot : ModelSnapshot
+    [Migration("20220114205103_updateDatabaseThings")]
+    partial class updateDatabaseThings
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

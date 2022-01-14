@@ -1,0 +1,12 @@
+@using Bakery.Models
+
+<h1>@Model.Description</h1>
+
+<ul>
+  @foreach(FlavorTreat f in Model.Treats)
+  {
+    <li>@Html.ActionLink(f.Treat.Description,"Detail","Treat", new{id=f.Treat.TreatId})</li>
+  }
+</ul>
+
+@Html.ActionLink("go back", "Index")

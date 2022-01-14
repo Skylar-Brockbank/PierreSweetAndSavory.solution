@@ -1,0 +1,8 @@
+@model Bakery.Models.Flavor
+
+@using(Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Description)
+  @Html.TextBoxFor(model => model.Description, new { @required = "required"})
+  <input type = "submit" value="Create">
+}
