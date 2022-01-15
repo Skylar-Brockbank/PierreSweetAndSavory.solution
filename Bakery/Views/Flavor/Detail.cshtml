@@ -8,5 +8,6 @@
     <li>@Html.ActionLink(f.Treat.Description,"Detail","Treat", new{id=f.Treat.TreatId})</li>
   }
 </ul>
-
+@Html.ActionLink("edit", "Edit", new{id = Model.FlavorId})
+<br>
 @Html.ActionLink("go back", "Index")
