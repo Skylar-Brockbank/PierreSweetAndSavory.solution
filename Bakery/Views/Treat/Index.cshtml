@@ -3,7 +3,7 @@
   @using Bakery.Models
   @foreach(Treat t in Model)
   {
-    <li>@Html.ActionLink(t.Description, "Detail", new {id=t.TreatId})</li>
+    <li>@Html.ActionLink(t.Description, "Detail", new {id=t.TreatId}) : @Html.ActionLink("Delete", "Delete", new {id=t.TreatId})</li>
   }
 </ul>
 @Html.ActionLink("Create","Create","Treat")

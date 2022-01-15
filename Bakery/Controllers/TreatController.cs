@@ -65,7 +65,22 @@ namespace Bakery.Controllers
       _db.Joins.Add(new FlavorTreat(){TreatId = t.TreatId, FlavorId=SelectJoins});
       _db.SaveChanges();
       
-      return RedirectToAction("Detail", new{id = t.TreatId});
+      return RedirectToAction("Edit", new{id = t.TreatId});
+    }
+    
+    public ActionResult Delete(int id)
+    {
+      Treat target = _db.Treats.FirstOrDefault(t => t.TreatId == id);
+      _db.Treats.Remove(target);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+    public ActionResult DeleteLink(int id)
+    {
+      FlavorTreat x = _db.Joins.FirstOrDefault(join => join.FlavorTreatId == id);
+      _db.Joins.Remove(x);
+      _db.SaveChanges();
+      return RedirectToAction("Edit","Treat", new{id = x.TreatId});
     }
 
   }

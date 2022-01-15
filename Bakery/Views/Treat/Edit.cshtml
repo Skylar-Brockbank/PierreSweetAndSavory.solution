@@ -9,7 +9,7 @@
 <ul>
   @foreach(FlavorTreat f in Model.Flavors)
   {
-    <li>@Html.ActionLink(f.Flavor.Description, "Detail", "Flavor", new {id = f.Flavor.FlavorId}) - @Html.ActionLink("Delete", "Delete", "Flavor", new {id = f.FlavorTreatId})</li>
+    <li>@Html.ActionLink(f.Flavor.Description, "Detail", "Flavor", new {id = f.Flavor.FlavorId}) - @Html.ActionLink("Delete", "DeleteLink", "Treat", new {id = f.FlavorTreatId})</li>
   }
 </ul>
 @using(Html.BeginForm())
@@ -20,4 +20,6 @@
   @Html.HiddenFor(model=>model.TreatId)
   <input type="submit" value="submit">
 }
+@Html.ActionLink("Done", "Detail", new{id=Model.TreatId})
+<br>
 @Html.ActionLink("All Treats", "Index", "Treat")
