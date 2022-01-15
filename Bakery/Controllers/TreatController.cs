@@ -67,7 +67,7 @@ namespace Bakery.Controllers
       
       return RedirectToAction("Edit", new{id = t.TreatId});
     }
-    
+    [Authorize]
     public ActionResult Delete(int id)
     {
       Treat target = _db.Treats.FirstOrDefault(t => t.TreatId == id);
@@ -75,6 +75,7 @@ namespace Bakery.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+    [Authorize]
     public ActionResult DeleteLink(int id)
     {
       FlavorTreat x = _db.Joins.FirstOrDefault(join => join.FlavorTreatId == id);
