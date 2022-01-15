@@ -1,11 +1,12 @@
 @{
   Layout="_Layout";
 }
+@using Bakery.Models
 @Html.ActionLink("Flavor Menue","Index", "Flavor")
 <br>
 @Html.ActionLink("Treat Menue","Index", "Treat")
 <br>
-@using(BeginForm())
+@using(Html.BeginForm())
 {
   <select name="category">
     <option value=0>All Items</option>
@@ -16,3 +17,9 @@
   </select>
   <input type = "submit" value = "submit">
 }
+<ul>
+  @foreach(Treat t in Model)
+  {
+    <li>@t.Description</li>
+  }
+</ul>
