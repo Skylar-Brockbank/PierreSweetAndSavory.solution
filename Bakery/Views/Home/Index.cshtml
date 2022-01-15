@@ -5,4 +5,14 @@
 <br>
 @Html.ActionLink("Treat Menue","Index", "Treat")
 <br>
-@Html.ActionLink("Sign In","Index","Account")
+@using(BeginForm())
+{
+  <select name="category">
+    <option value=0>All Items</option>
+    @foreach(Flavor f in ViewBag.CategoryOptions)
+    {
+      <option value=@f.FlavorId>@f.Description</option>
+    }
+  </select>
+  <input type = "submit" value = "submit">
+}

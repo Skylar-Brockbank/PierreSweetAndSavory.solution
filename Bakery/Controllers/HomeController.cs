@@ -18,7 +18,24 @@ namespace Bakery.Controllers
     [HttpGet("/")]
     public ActionResult Index()
     {
+      ViewBag.CategoryOptions = _db.Flavors.ToList();
       return View();
+    }
+    [HttpPost]
+    public ActionResult Index(int CategoryOptions)
+    {
+      if(CategoryOptions==0)
+      {
+        List<Treat> listOut = _db.Treats.ToList();
+      }else
+      {
+        Flavor target = _db.Flavors
+          .Include(f =>f.Treats)
+          .ThenInclude(f=>f.Treat)
+          .FirstOrDefault(f=>f.FlavorId == CategoryOptions);
+        List<Treat> listOut = target.Treats;
+      }
+      return View(listOut);
     }
   }
 }
