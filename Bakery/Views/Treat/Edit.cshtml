@@ -1,0 +1,23 @@
+@{
+  Layout = "_Layout";
+}
+@model Bakery.Models.Treat
+@using Bakery.Models
+
+<h1>Edit @Model.Description</h1>
+<p>Flavor Categories</p>
+<ul>
+  @foreach(FlavorTreat f in Model.Flavors)
+  {
+    <li>@Html.ActionLink(f.Flavor.Description, "Detail", "Flavor", new {id = f.Flavor.FlavorId}) - @Html.ActionLink("Delete", "Delete", "Flavor", new {id = f.FlavorTreatId})</li>
+  }
+</ul>
+@using(Html.BeginForm())
+{
+  @Html.DropDownList("SelectJoins")
+  @Html.LabelFor(model => model.Description)
+  @Html.TextBoxFor(model => model.Description)
+  @Html.HiddenFor(model=>model.TreatId)
+  <input type="submit" value="submit">
+}
+@Html.ActionLink("All Treats", "Index", "Treat")

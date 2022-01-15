@@ -1,0 +1,16 @@
+@{
+  Layout = "_Layout";
+}
+@using Bakery.Models
+
+<h1>@Model.Description</h1>
+
+<ul>
+  @foreach(FlavorTreat f in Model.Flavors)
+  {
+    <li>@Html.ActionLink(f.Flavor.Description, "Detail", "Flavor", new {id=f.Flavor.FlavorId})</li>
+  }
+</ul>
+@Html.ActionLink("All Treats", "Index", "Treat")
+<br>
+@Html.ActionLink("Edit", "Edit", "Treat", new{id=Model.TreatId})
